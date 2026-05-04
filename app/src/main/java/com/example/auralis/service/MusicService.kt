@@ -2,6 +2,7 @@ package com.example.auralis.service
 
 import android.app.*
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Binder
 import android.os.Build
@@ -10,7 +11,6 @@ import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.core.app.NotificationCompat
 import com.example.auralis.MainActivity
-import com.example.auralis.R
 import com.example.auralis.data.models.Song
 import java.io.IOException
 
@@ -134,13 +134,11 @@ class MusicService : Service() {
     fun seekTo(position: Int) { mediaPlayer?.seekTo(position) }
 
     private fun buildNotification(): Notification {
-        val playPauseIcon = if (isPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val style = androidx.media.app.NotificationCompat.MediaStyle()
             .setMediaSession(mediaSession.sessionToken)
-            .setShowActionsInCompactView(0)
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(currentSong?.title ?: "Auralis")
