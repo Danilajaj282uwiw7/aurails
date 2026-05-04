@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_library" android:title="Библиотека" android:icon="@drawable/ic_music_note" />
+    <item android:id="@+id/nav_playlists" android:title="Плейлисты" android:icon="@drawable/ic_add" />
+    <item android:id="@+id/nav_player" android:title="Плеер" android:icon="@drawable/ic_play" />
+</menu>
